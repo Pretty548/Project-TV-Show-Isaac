@@ -11,7 +11,6 @@ function parseEpisode(episode) {
     name: episode.name,
     season: paddedSeason,
     number: paddedNumber,
-    episode: episode.episode,
     image: episode.image.medium,
     summary: episode.summary,
   };
