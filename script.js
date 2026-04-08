@@ -1,7 +1,6 @@
 function setup() {
   const allEpisodes = getAllEpisodes();
-  const allEpisodeCards = makePageForEpisodes(allEpisodes);
-  document.body.append(allEpisodeCards);
+  makePageForEpisodes(allEpisodes);
 }
 
 function parseEpisode(episode) {
@@ -40,11 +39,13 @@ function createEpisodeCard(episode) {
 }
 
 function makePageForEpisodes(episodeList) {
-  const mainElem = document.createElement("main");
+  const rootElem = document.getElementById("root");
+
   const parsedEpisodes = episodeList.map(parseEpisode);
   const episodeCards = parsedEpisodes.map(createEpisodeCard);
-  mainElem.append(...episodeCards);
-  return mainElem;
+
+  rootElem.append(...episodeCards);
+  return rootElem;
 }
 
 window.onload = setup;
