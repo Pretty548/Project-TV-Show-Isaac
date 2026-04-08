@@ -1,8 +1,7 @@
-//You can edit ALL of the code here
 function setup() {
-  const singleEpisode = parseEpisode(getOneEpisode());
-  const episodeCard = createEpisodeCard(singleEpisode);
-  document.body.append(episodeCard);
+  const allEpisodes = getAllEpisodes();
+  const allEpisodeCards = makePageForEpisodes(allEpisodes);
+  document.body.append(allEpisodeCards);
 }
 
 function parseEpisode(episode) {
@@ -36,8 +35,11 @@ function createEpisodeCard(episode) {
 }
 
 function makePageForEpisodes(episodeList) {
-  const rootElem = document.getElementById("root");
-  rootElem.textContent = `Got ${episodeList.length} episode(s)`;
+  const mainElem = document.createElement("main");
+  const parsedEpisodes = episodeList.map(parseEpisode);
+  const episodeCards = parsedEpisodes.map(createEpisodeCard);
+  mainElem.append(...episodeCards);
+  return mainElem;
 }
 
 window.onload = setup;
