@@ -5,10 +5,13 @@ function setup() {
 }
 
 function parseEpisode(episode) {
+  const paddedSeason = episode.season.toString().padStart(2, "0");
+  const paddedNumber = episode.number.toString().padStart(2, "0");
+
   return {
     name: episode.name,
-    season: episode.season,
-    number: episode.number,
+    season: paddedSeason,
+    number: paddedNumber,
     episode: episode.episode,
     image: episode.image.medium,
     summary: episode.summary,
