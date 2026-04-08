@@ -31,7 +31,8 @@ function createEpisodeCard(episode) {
   image.alt = `${episode.name} image`;
   episodeCard.appendChild(image);
 
-  const summary = document.createElement("p");
+  const summary = document.createElement("div");
+  summary.classList.add("episode-summary");
   summary.innerHTML = episode.summary;
   episodeCard.appendChild(summary);
 
